@@ -1,0 +1,55 @@
+﻿@model MyBelongingsApp.Models.MyTasks
+
+@{
+    ViewData["Title"] = "Edit task";
+}
+
+<h1>Edit task</h1>
+
+<h4>MyTasks</h4>
+
+<a class="btn btn-dark col-2 d-flex justify-content-start" asp-action="Index"><i class="fa fa-chevron-left" style="padding-top:4px;"></i> &nbsp; &nbsp; Back to List</a>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <img src="~/images/TasksImgs/@Model.ImgName" id="imgPrev" width="88" height="88" />
+                <label asp-for="ImgName" class="control-label"> : Task Pic </label>
+                <input asp-for="ImgName" type="file" id="imgBtn" name="newPic" />
+            </div>
+            <br />
+
+            <input type="hidden" asp-for="UserId" class="form-control" />
+            <div class="form-group">
+                <label asp-for="Text" class="control-label"> To Do </label>
+                <input asp-for="Text" class="form-control" />
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MeantDay" class="control-label"> Day Details </label>
+                <input asp-for="MeantDay" class="form-control" />
+                <span asp-validation-for="MeantDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartTime" class="control-label"> Start Time </label>
+                <input asp-for="StartTime" class="form-control" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeadLine" class="control-label"> Deadline </label>
+                <input asp-for="DeadLine" class="form-control" />
+                <span asp-validation-for="DeadLine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

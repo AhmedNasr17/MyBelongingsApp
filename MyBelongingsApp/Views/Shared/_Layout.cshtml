@@ -1,0 +1,53 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Visualize by TEMPLATED
+	templated.co 
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>@ViewBag.Title</title>
+		<link href="~/css/main.css" rel="stylesheet" type="text/css" />
+		<link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<!-- Scripts -->
+		<script src="~/lib/jquery/dist/jquery.js"></script>
+		<script src="~/js/jquery.poptrox.min.js"></script>
+		<script src="~/js/forImgs.js"></script>
+		<script src="~/js/skel.min.js"></script>
+		<script src="~/js/main.js"></script>
+		<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<span class="avatar"><img src="~/images/todologo.png" alt="" /></span>
+						
+						@RenderBody()
+
+					<br /><br /><br /><br />
+						<ul class="icons">
+							<li><a href="https://www.twitter.com" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.instagram.com" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://www.500px.com" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
+							<li><a href="https://www.gmail.com" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+						</ul>
+					</header>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p>&copy; Untitled. All rights reserved: <img id="cpyrLogo" src="~/images/Centro-Global-Solutions-Egypt.png"/>.</p>
+					</footer>
+
+			</div>
+
+	</body>
+</html>
