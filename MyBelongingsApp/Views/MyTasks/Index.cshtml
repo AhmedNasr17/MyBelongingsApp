@@ -165,4 +165,36 @@
 
     </div>
 
+
+    <div class="task-set">
+
+        <span class="task-notdonetitle">TimeOut!</span>
+        @foreach (var item in Model)
+        {
+            if (item.isDone == false && item.DeadLine < DateTime.Now)
+            {
+                <div class="task-content">
+                    <div>
+                        @item.Text
+
+                        <img class="task-img" src="~/images/TasksImgs/@item.ImgName" />
+                    </div>
+                    <div>
+                        Start:  @item.StartTime
+                        &nbsp; &nbsp;
+                        Deadline:  @item.DeadLine
+                    </div>
+                </div>
+
+                <div class="task-controls">
+                    <a class="btn btn-light" asp-action="Details" asp-route-id="@item.MyTaskId">Details</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
+                </div>
+            }
+
+        }
+
+    </div>
+
+
 </div>

@@ -2676,6 +2676,13 @@
 	border-radius: 20%;
 }
 
+.task-notdonetitle {
+	background-color: black;
+	color: lightgray;
+	padding: 5px;
+	border-radius: 20%;
+}
+
 .task-img{
 	width: 44px;
 	height: 44px;

@@ -59,6 +59,12 @@ namespace MyBelongingsApp.Controllers
             }
 
             var myTask = _myTasks.GetTask(id);
+            
+            if (myTask == null)
+            {
+                return NotFound();
+            }
+            
             myTask.isDone = true;
             _context.SaveChanges();
 
