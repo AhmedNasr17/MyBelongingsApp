@@ -190,6 +190,7 @@ namespace MyBelongingsApp.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
             return View(myTask);

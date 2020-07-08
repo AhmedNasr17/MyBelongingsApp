@@ -23,7 +23,9 @@
             </div>
             <br />
 
-            <input type="hidden" asp-for="UserId" value="@Model.MyTaskId" class="form-control" />
+            <input type="hidden" asp-for="MyTaskId" value="@Model.MyTaskId" class="form-control" />
+            <input type="hidden" asp-for="UserId" value="@Model.UserId" class="form-control" />
+            
             <div class="form-group">
                 <label asp-for="Text" class="control-label"> To Do </label>
                 <input asp-for="Text" class="form-control" />
