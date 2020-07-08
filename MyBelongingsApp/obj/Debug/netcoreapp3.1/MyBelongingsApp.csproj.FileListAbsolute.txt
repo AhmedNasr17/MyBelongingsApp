@@ -165,11 +165,10 @@ C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\bin\Debug\netco
 C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\MyBelongingsApp.csproj.CoreCompileInputs.cache
-C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\MyBelongingsApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\Razor\Views\MyTasks\Create.cshtml.g.cs
 C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\Razor\Views\MyTasks\Delete.cshtml.g.cs
-C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\Razor\Views\MyTasks\Details.cshtml.g.cs
 C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\Razor\Views\MyTasks\Edit.cshtml.g.cs
 C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\Razor\Views\MyTasks\Index.cshtml.g.cs
-C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\MyBelongingsApp.csprojAssemblyReference.cache
+C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\Razor\Views\MyTasks\ShowDetails.cshtml.g.cs
+C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\MyBelongingsApp.csproj.CoreCompileInputs.cache
+C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\MyBelongingsApp.MvcApplicationPartsAssemblyInfo.cache

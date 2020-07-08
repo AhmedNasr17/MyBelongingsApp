@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QJC5EXNTMXvZ/+4oEJxy2HqifXBxMMFw+o8tvRrzEI1ui6yanj9Nl1dPoKpgbgctqX1a86+WiKuuVwwwy45r1g==",
+  "dgSpecHash": "gRu3yLFiBxRJeDddLupC10Tbz5mJro9C4dcWS72x+lLWGt8AfRfFELLVrBH77CUjhNSeeOE3a8FM50MkApMW2g==",
   "success": true,
   "projectFilePath": "C:\\Users\\East Sound\\source\\repos\\MyBelongingsApp\\MyBelongingsApp\\MyBelongingsApp.csproj",
   "expectedPackageFiles": [
@@ -49,6 +49,7 @@
     "C:\\Users\\East Sound\\.nuget\\packages\\microsoft.extensions.options\\3.1.5\\microsoft.extensions.options.3.1.5.nupkg.sha512",
     "C:\\Users\\East Sound\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.5\\microsoft.extensions.primitives.3.1.5.nupkg.sha512",
     "C:\\Users\\East Sound\\.nuget\\packages\\microsoft.identity.client\\3.0.8\\microsoft.identity.client.3.0.8.nupkg.sha512",
+    "C:\\Users\\East Sound\\.nuget\\packages\\microsoft.jquery.unobtrusive.ajax\\3.2.6\\microsoft.jquery.unobtrusive.ajax.3.2.6.nupkg.sha512",
     "C:\\Users\\East Sound\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "C:\\Users\\East Sound\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\East Sound\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.3\\microsoft.visualstudio.web.codegeneration.3.1.3.nupkg.sha512",

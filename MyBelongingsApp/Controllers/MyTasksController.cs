@@ -34,7 +34,7 @@ namespace MyBelongingsApp.Controllers
         }
 
         // GET: MyTasks/Details/5
-        public IActionResult Details(int id)
+        public IActionResult ShowDetails(int id)
         {
             if (id.Equals(null))
             {
@@ -42,12 +42,13 @@ namespace MyBelongingsApp.Controllers
             }
 
             var myTask = _myTasks.GetTask(id);
+            
             if (myTask == null)
             {
                 return NotFound();
             }
 
-            return View(myTask);
+            return PartialView(myTask);
         }
 
         //GET: MyTasks/Done
@@ -66,7 +67,7 @@ namespace MyBelongingsApp.Controllers
             }
             
             myTask.isDone = true;
-            _context.SaveChanges();
+            _myTasks.UpdateTask(myTask);
 
             return RedirectToAction(nameof(Index));
         }

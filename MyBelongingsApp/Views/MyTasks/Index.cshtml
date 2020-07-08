@@ -57,7 +57,18 @@
 
                     <div class="task-controls">
                         <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.MyTaskId">Edit</a> |
-                        <a class="btn btn-light" asp-action="Details" asp-route-id="@item.MyTaskId">Details</a> |
+                        <span class="DetailsSpan">
+
+                            @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
+                            {
+                             data_ajax = "true",
+                             data_ajax_method = "GET",
+                             data_ajax_mode = "replace",
+                             data_ajax_update = "#myDiv",
+                             @class = "btn btn-light"
+                            })
+
+                        </span> |
                         <a class="btn btn-success" asp-action="TaskDone" asp-route-id="@item.MyTaskId">Done</a> |
                         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
                     </div>
@@ -91,7 +102,18 @@
 
                     <div class="task-controls">
                         <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.MyTaskId">Edit</a> |
-                        <a class="btn btn-light" asp-action="Details" asp-route-id="@item.MyTaskId">Details</a> |
+                        <span class="DetailsSpan">
+
+                            @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
+                            {
+                             data_ajax = "true",
+                             data_ajax_method = "GET",
+                             data_ajax_mode = "replace",
+                             data_ajax_update = "#myDiv",
+                             @class = "btn btn-light"
+                            })
+
+                        </span> |
                         <a class="btn btn-success" asp-action="TaskDone" asp-route-id="@item.MyTaskId">Done</a> |
                         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
                     </div>
@@ -108,7 +130,7 @@
             <span class="task-title">Upcoming</span>
             @foreach (var item in forFuture)
             {
-                if (item.isDone == false)
+                if (item.isDone == false && item.DeadLine > DateTime.Now)
                 {
                     <div class="task-content">
                         <div>
@@ -125,7 +147,18 @@
 
                     <div class="task-controls">
                         <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.MyTaskId">Edit</a> |
-                        <a class="btn btn-light" asp-action="Details" asp-route-id="@item.MyTaskId">Details</a> |
+                        <span class="DetailsSpan">
+
+                            @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
+                            {
+                             data_ajax = "true",
+                             data_ajax_method = "GET",
+                             data_ajax_mode = "replace",
+                             data_ajax_update = "#myDiv",
+                             @class = "btn btn-light"
+                            })
+
+                        </span> |
                         <a class="btn btn-success" asp-action="TaskDone" asp-route-id="@item.MyTaskId">Done</a> |
                         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
                     </div>
@@ -134,7 +167,7 @@
             }
         }
     </div>
-
+    <br /><br /><br />
     <div class="task-set">
 
         <span class="task-donetitle">Done</span>
@@ -156,7 +189,18 @@
                 </div>
 
                 <div class="task-controls">
-                    <a class="btn btn-light" asp-action="Details" asp-route-id="@item.MyTaskId">Details</a> |
+                    <span class="DetailsSpan">
+
+                        @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
+                        {
+                         data_ajax = "true",
+                         data_ajax_method = "GET",
+                         data_ajax_mode = "replace",
+                         data_ajax_update = "#myDiv",
+                         @class = "btn btn-light"
+                        })
+
+                    </span> |
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
                 </div>
             }
@@ -187,7 +231,18 @@
                 </div>
 
                 <div class="task-controls">
-                    <a class="btn btn-light" asp-action="Details" asp-route-id="@item.MyTaskId">Details</a> |
+                    <span class="DetailsSpan">
+
+                        @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
+                        {
+                         data_ajax = "true",
+                         data_ajax_method = "GET",
+                         data_ajax_mode = "replace",
+                         data_ajax_update = "#myDiv",
+                         @class = "btn btn-light"
+                        })
+
+                    </span> |
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
                 </div>
             }
@@ -196,5 +251,11 @@
 
     </div>
 
+
+</div>
+
+
+<!-- The Modal -->
+<div id="myDiv" class="DetailsModal">
 
 </div>
