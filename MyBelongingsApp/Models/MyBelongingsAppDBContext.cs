@@ -35,8 +35,7 @@ namespace MyBelongingsApp.Models
 
                 entity.Property(e => e.DeadLine).HasColumnType("datetime");
 
-                entity.Property(e => e.MeantDay)
-                    .HasMaxLength(50);
+                entity.Property(e => e.MeantDay);
 
                 entity.Property(e => e.StartTime).HasColumnType("datetime");
 

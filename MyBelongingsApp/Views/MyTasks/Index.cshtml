@@ -24,6 +24,7 @@
             forFuture.Add(task);
         }
     }
+
 }
 
 <h1>My Diary</h1>
@@ -33,6 +34,17 @@
 </p>
 
 <div class="container">
+   
+    @*Alarm simulation*@
+    @foreach (var item in Model)
+    {
+        if(item.DeadLine == DateTime.Now)
+        {
+            <script>
+                alert("Deadline for @item.MeantDay !!");
+            </script>
+        }
+    }
 
     <div class="task-set">
         @if (forToday != null)
