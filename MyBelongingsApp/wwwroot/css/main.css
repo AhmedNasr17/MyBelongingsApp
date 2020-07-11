@@ -2623,6 +2623,9 @@
 
 		}
 
+.container{
+	text-align:center;
+}
 
 /* Footer */
 
@@ -2698,6 +2701,11 @@
 	background-color:lightgray;
 }
 
+.task-nocontent {
+	text-align: center;
+	padding-top:10px;
+	background-color: black;
+}
 
 
 /* The Modal (background) */

@@ -19,12 +19,14 @@
         {
             forTomorrow.Add(task);
         }
-        else
+        else if (task.StartTime.Date > DateTime.Today.AddDays(1).Date && task.isDone == false)
         {
             forFuture.Add(task);
         }
     }
 
+    int DoneCounter = 0;
+    int TimeOutCounter = 0;
 }
 
 <h1>My Diary</h1>
@@ -47,9 +49,10 @@
     }
 
     <div class="task-set">
-        @if (forToday != null)
+        <span class="task-title">Today</span>
+    
+        @if (forToday.Count != 0)
         {
-            <span class="task-title">Today</span>
             @foreach (var item in forToday)
             {
                 if (item.isDone == false)
@@ -57,7 +60,7 @@
                     <div class="task-content">
                         <div>
                             @item.Text
-
+    
                             <img class="task-img" src="~/images/TasksImgs/@item.ImgName" />
                         </div>
                         <div>
@@ -66,11 +69,11 @@
                             Deadline:  @item.DeadLine.TimeOfDay
                         </div>
                     </div>
-
+    
                     <div class="task-controls">
                         <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.MyTaskId">Edit</a> |
                         <span class="DetailsSpan">
-
+    
                             @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
                             {
                              data_ajax = "true",
@@ -79,22 +82,31 @@
                              data_ajax_update = "#myDiv",
                              @class = "btn btn-light"
                             })
-
+    
                         </span> |
                         <a class="btn btn-success" asp-action="TaskDone" asp-route-id="@item.MyTaskId">Done</a> |
                         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
                     </div>
                 }
-
+    
             }
         }
+        else
+        {
+        <div class="task-content">
+            <div class="task-nocontent">
+                nothing yet for today..
+            </div>
+        </div>
+        }
     </div>
-
+    
 
     <div class="task-set">
-        @if (forTomorrow != null)
+        <span class="task-title">Tomorrow</span>
+    
+        @if (forTomorrow.Count != 0)
         {
-            <span class="task-title">Tomorrow</span>
             @foreach (var item in forTomorrow)
             {
                 if (item.isDone == false)
@@ -102,7 +114,7 @@
                     <div class="task-content">
                         <div>
                             @item.Text
-
+    
                             <img class="task-img" src="~/images/TasksImgs/@item.ImgName" />
                         </div>
                         <div>
@@ -111,11 +123,11 @@
                             Deadline:  @item.DeadLine.TimeOfDay
                         </div>
                     </div>
-
+    
                     <div class="task-controls">
                         <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.MyTaskId">Edit</a> |
                         <span class="DetailsSpan">
-
+    
                             @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
                             {
                              data_ajax = "true",
@@ -124,144 +136,177 @@
                              data_ajax_update = "#myDiv",
                              @class = "btn btn-light"
                             })
-
+    
                         </span> |
                         <a class="btn btn-success" asp-action="TaskDone" asp-route-id="@item.MyTaskId">Done</a> |
                         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
                     </div>
                 }
-
+    
             }
+        }
+        else
+        {
+            <div class="task-content">
+                <div class="task-nocontent">
+                    nothing yet for tomorrow..
+                </div>
+            </div>
         }
     </div>
 
 
     <div class="task-set">
-        @if (forFuture != null)
+        <span class="task-title">Upcoming</span>
+
+        @if (forFuture.Count != 0)
         {
-            <span class="task-title">Upcoming</span>
             @foreach (var item in forFuture)
             {
-                if (item.isDone == false && item.DeadLine > DateTime.Now)
-                {
-                    <div class="task-content">
-                        <div>
-                            @item.Text
+                 <div class="task-content">
+                    <div>
+                        @item.Text
 
-                            <img class="task-img" src="~/images/TasksImgs/@item.ImgName" />
-                        </div>
-                        <div>
-                            Start:  @item.StartTime
-                            &nbsp; &nbsp;
-                            Deadline:  @item.DeadLine
-                        </div>
+                        <img class="task-img" src="~/images/TasksImgs/@item.ImgName" />
                     </div>
-
-                    <div class="task-controls">
-                        <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.MyTaskId">Edit</a> |
-                        <span class="DetailsSpan">
-
-                            @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
-                            {
-                             data_ajax = "true",
-                             data_ajax_method = "GET",
-                             data_ajax_mode = "replace",
-                             data_ajax_update = "#myDiv",
-                             @class = "btn btn-light"
-                            })
-
-                        </span> |
-                        <a class="btn btn-success" asp-action="TaskDone" asp-route-id="@item.MyTaskId">Done</a> |
-                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
+                    <div>
+                        Start:  @item.StartTime
+                        &nbsp; &nbsp;
+                        Deadline:  @item.DeadLine
                     </div>
-                }
+                 </div>
+
+                 <div class="task-controls">
+                     <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.MyTaskId">Edit</a> |
+                     <span class="DetailsSpan">
+
+                         @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
+                         {
+                          data_ajax = "true",
+                          data_ajax_method = "GET",
+                          data_ajax_mode = "replace",
+                          data_ajax_update = "#myDiv",
+                          @class = "btn btn-light"
+                         })
+
+                     </span> |
+                     <a class="btn btn-success" asp-action="TaskDone" asp-route-id="@item.MyTaskId">Done</a> |
+                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
+                 </div>
 
             }
         }
+        else
+        {
+            <div class="task-content">
+                <div class="task-nocontent">
+                    no future tasks..
+                </div>
+            </div>
+        }
     </div>
+    
+    
     <br /><br /><br />
-    <div class="task-set">
+                <div class="task-set">
 
-        <span class="task-donetitle">Done</span>
-        @foreach (var item in Model)
-        {
-            if (item.isDone == true)
-            {
-                <div class="task-content">
-                    <div>
-                        @item.Text
-
-                        <img class="task-img" src="~/images/TasksImgs/@item.ImgName" />
-                    </div>
-                    <div>
-                        Start:  @item.StartTime
-                        &nbsp; &nbsp;
-                        Deadline:  @item.DeadLine
-                    </div>
-                </div>
-
-                <div class="task-controls">
-                    <span class="DetailsSpan">
-
-                        @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
+                    <span class="task-donetitle">Done</span>
+                    @foreach (var item in Model)
+                    {
+                        if (item.isDone == true)
                         {
-                         data_ajax = "true",
-                         data_ajax_method = "GET",
-                         data_ajax_mode = "replace",
-                         data_ajax_update = "#myDiv",
-                         @class = "btn btn-light"
-                        })
+                            DoneCounter += 1;
+                            <div class="task-content">
+                                <div>
+                                    @item.Text
 
-                    </span> |
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
+                                    <img class="task-img" src="~/images/TasksImgs/@item.ImgName" />
+                                </div>
+                                <div>
+                                    Start:  @item.StartTime
+                                    &nbsp; &nbsp;
+                                    Deadline:  @item.DeadLine
+                                </div>
+                            </div>
+
+                            <div class="task-controls">
+                                <span class="DetailsSpan">
+
+                                    @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
+                                    {
+                                     data_ajax = "true",
+                                     data_ajax_method = "GET",
+                                     data_ajax_mode = "replace",
+                                     data_ajax_update = "#myDiv",
+                                     @class = "btn btn-light"
+                                    })
+
+                                </span> |
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
+                            </div>
+                        }
+
+                    }
+                    @if (DoneCounter == 0)
+                    {
+                        <div class="task-content">
+                            <div class="task-nocontent">
+                                no tasks have been done yet..
+                            </div>
+                        </div>
+                    }
                 </div>
-            }
-
-        }
-
-    </div>
 
 
-    <div class="task-set">
+                <div class="task-set">
 
-        <span class="task-notdonetitle">TimeOut!</span>
-        @foreach (var item in Model)
-        {
-            if (item.isDone == false && item.DeadLine < DateTime.Now)
-            {
-                <div class="task-content">
-                    <div>
-                        @item.Text
-
-                        <img class="task-img" src="~/images/TasksImgs/@item.ImgName" />
-                    </div>
-                    <div>
-                        Start:  @item.StartTime
-                        &nbsp; &nbsp;
-                        Deadline:  @item.DeadLine
-                    </div>
-                </div>
-
-                <div class="task-controls">
-                    <span class="DetailsSpan">
-
-                        @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
+                    <span class="task-notdonetitle">TimeOut!</span>
+                    @foreach (var item in Model)
+                    {
+                        if (item.isDone == false && item.DeadLine < DateTime.Now)
                         {
-                         data_ajax = "true",
-                         data_ajax_method = "GET",
-                         data_ajax_mode = "replace",
-                         data_ajax_update = "#myDiv",
-                         @class = "btn btn-light"
-                        })
+                            TimeOutCounter += 1;
+                            <div class="task-content">
+                                <div>
+                                    @item.Text
 
-                    </span> |
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
+                                    <img class="task-img" src="~/images/TasksImgs/@item.ImgName" />
+                                </div>
+                                <div>
+                                    Start:  @item.StartTime
+                                    &nbsp; &nbsp;
+                                    Deadline:  @item.DeadLine
+                                </div>
+                            </div>
+
+                            <div class="task-controls">
+                                <span class="DetailsSpan">
+
+                                    @Html.ActionLink("Details", "ShowDetails", "MyTasks", new { id = item.MyTaskId }, new
+                                    {
+                                     data_ajax = "true",
+                                     data_ajax_method = "GET",
+                                     data_ajax_mode = "replace",
+                                     data_ajax_update = "#myDiv",
+                                     @class = "btn btn-light"
+                                    })
+
+                                </span> |
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MyTaskId">Delete</a>
+                            </div>
+                        }
+
+                    }
+                    @if (TimeOutCounter == 0)
+                    {
+                        <div class="task-content">
+                            <div class="task-nocontent">
+                                you still have time.. go on!!
+                            </div>
+                        </div>
+                    }
+
                 </div>
-            }
-
-        }
-
-    </div>
 
 
 </div>

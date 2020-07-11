@@ -172,4 +172,3 @@ C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netco
 C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\Razor\Views\MyTasks\ShowDetails.cshtml.g.cs
 C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\MyBelongingsApp.csproj.CoreCompileInputs.cache
 C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\MyBelongingsApp.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\East Sound\source\repos\MyBelongingsApp\MyBelongingsApp\obj\Debug\netcoreapp3.1\MyBelongingsApp.csprojAssemblyReference.cache
