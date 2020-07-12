@@ -111,12 +111,25 @@ namespace MyBelongingsApp.Controllers
 
             if (ModelState.IsValid)
             {
-                _myTasks.AddTask(myTask);
+                if (myTask.DeadLine > myTask.StartTime && myTask.StartTime >= DateTime.Today)
+                {
+                    _myTasks.AddTask(myTask);
 
-                return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return RedirectToAction(nameof(InvalidData));
+                }
             }
 
             return View(myTask);
+        }
+
+        //Invalid
+        public IActionResult InvalidData()
+        {
+            return View();
         }
 
         // GET: MyTasks/Edit/5
@@ -175,20 +188,27 @@ namespace MyBelongingsApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
+                if (myTask.DeadLine > myTask.StartTime && myTask.StartTime >= DateTime.Today)
                 {
-                    _myTasks.UpdateTask(myTask);
+                    try
+                    {
+                        _myTasks.UpdateTask(myTask);
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!MyTasksExists(myTask.MyTaskId))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!MyTasksExists(myTask.MyTaskId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return RedirectToAction(nameof(InvalidData));
                 }
 
                 return RedirectToAction(nameof(Index));

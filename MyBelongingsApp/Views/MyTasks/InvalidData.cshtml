@@ -1,0 +1,27 @@
+﻿@model MyTasks
+
+@{
+    ViewData["Title"] = "InvalidData";
+}
+
+<h1 style="color:red;">Invalid Data!</h1>
+
+<br />
+
+<div class="container">
+    <!--item details-->
+    <div>
+        <h2>
+            You entered invalid data, please check your inputs again..
+        </h2>
+        <br />
+        <h4>
+            <h3>Note that:</h3>
+            <br />
+            -Start time cannot be an old time.
+            <br />
+            -Deadline cannot be older than Start time.
+
+        </h4>
+    </div>
+</div>
